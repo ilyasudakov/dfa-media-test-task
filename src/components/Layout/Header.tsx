@@ -11,7 +11,7 @@ export default function Header() {
   const { width } = useWindowDimensions();
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <header className="h-[100px] w-full flex items-center fixed top-0 bg-bg-dark px-4 lg:px-10">
+    <header className="h-[100px] w-full flex items-center fixed top-0 bg-bg-dark px-4 lg:px-10 z-50">
       {showMenu && width && width < 1024 && (
         <MobileMenu hideMenu={() => setShowMenu(false)} />
       )}

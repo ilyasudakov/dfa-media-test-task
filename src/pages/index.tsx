@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/Layout";
+import Homepage from "../widgets/homepage";
 
 const Home: NextPage = () => {
   return (
@@ -11,96 +12,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className="flex flex-wrap gap-4 items-center">
-          {Array.from({ length: 50 }).map((_, index) => (
-            <Card key={index} />
-          ))}
-        </div>
+        <Homepage />
       </Layout>
     </>
   );
 };
 
 export default Home;
-
-const Card = () => {
-  return (
-    <div className="flex flex-col gap-4 max-w-[120px] bg-bg-dark rounded-[1rem] p-3">
-      <div className="grid grid-cols-2 text-[0.5rem]">
-        <div className="text-[0.6rem]">1</div>
-        <div className="text-[0.6rem]">133</div>
-        <div className="bg-secondary-grey w-full h-[1px] col-span-2"></div>
-        <div>Уровень выплат</div>
-        <div>Активных партнёров</div>
-      </div>
-      <ul className="text-[0.4rem] max-h-[180px] overflow-auto scrollbar grid gap-2">
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-        <li className="flex items-center gap-1">
-          <div className="w-[25px] h-[25px] bg-white rounded-full">
-            {/* <img /> */}
-          </div>
-          <span>kris_anfalova</span>
-        </li>
-      </ul>
-    </div>
-  );
-};
