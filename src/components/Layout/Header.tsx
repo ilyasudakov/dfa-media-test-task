@@ -6,10 +6,14 @@ import Button from "../Button";
 import SidemenuMobile from "./SidemenuMobile";
 
 import CrossIcon from "../../assets/cross.svg";
+import Modal from "../Modal";
+import Input from "../Input";
 
 export default function Header() {
   const { width } = useWindowDimensions();
   const [showMenu, setShowMenu] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <header className="h-[60px] md:h-[100px] w-full flex items-center fixed top-0 bg-bg-dark px-4 lg:px-10 z-50">
       {showMenu && width && width < 1024 && (
@@ -28,9 +32,14 @@ export default function Header() {
       <ul className="flex gap-4 text-[0.6rem] items-center px-6 lg:pl-[200px]">
         <li className="cursor-pointer">Мероприятия</li>
         <li>
-          <Button>Войти</Button>
+          <Button onClick={() => setShowModal(true)}>Войти</Button>
         </li>
       </ul>
+      {showModal && (
+        <Modal handleClose={() => setShowModal(false)} isOpen={showModal}>
+          <ModalContent onSubmit={() => setShowModal(false)} />
+        </Modal>
+      )}
     </header>
   );
 }
@@ -45,5 +54,16 @@ const MobileMenu = ({ hideMenu }: { hideMenu: () => void }) => {
         <SidemenuMobile />
       </div>
     </div>
+  );
+};
+
+const ModalContent = ({ onSubmit }: { onSubmit: () => void }) => {
+  return (
+    <form className="flex flex-col gap-4">
+      <h2 className="text-2xl">Форма</h2>
+      <Input />
+      <Input />
+      <Button onClick={onSubmit}>Отправить</Button>
+    </form>
   );
 };

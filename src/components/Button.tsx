@@ -1,5 +1,13 @@
-export default function Button({ children }: { children: React.ReactNode }) {
+export default function Button({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick?: () => void;
+}) {
   return (
-    <button className="bg-secondary px-4 py-2 rounded-lg">{children}</button>
+    <button onClick={onClick} className="bg-secondary px-4 py-2 rounded-lg">
+      {children}
+    </button>
   );
 }
