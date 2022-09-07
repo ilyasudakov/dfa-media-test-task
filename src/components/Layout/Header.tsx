@@ -12,7 +12,9 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <header className="h-[100px] flex items-center fixed top-0 bg-bg-dark px-4 lg:px-10">
-      {showMenu && <MobileMenu hideMenu={() => setShowMenu(false)} />}
+      {showMenu && width && width < 1024 && (
+        <MobileMenu hideMenu={() => setShowMenu(false)} />
+      )}
       {width && width < 1024 && (
         <div
           onClick={() => setShowMenu(true)}

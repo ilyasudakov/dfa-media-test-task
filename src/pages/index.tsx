@@ -11,10 +11,36 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <h1>123</h1>
+        <div className="flex flex-wrap gap-4 items-center">
+          {Array.from({ length: 20 }).map((_, index) => (
+            <Card key={index} />
+          ))}
+        </div>
       </Layout>
     </>
   );
 };
 
 export default Home;
+
+const Card = () => {
+  return (
+    <div className="flex flex-col gap-4 max-w-[120px] bg-bg-dark rounded-[1rem] p-3">
+      <div className="grid grid-cols-2 text-[0.5rem]">
+        <div className="text-[0.6rem]">1</div>
+        <div className="text-[0.6rem]">133</div>
+        <div className="bg-secondary-grey w-full h-[1px] col-span-2"></div>
+        <div>Уровень выплат</div>
+        <div>Активных партнёров</div>
+      </div>
+      <ul className="text-[0.4rem]">
+        <li className="flex items-center gap-2">
+          <div className="w-[25px] h-[25px] bg-white rounded-full">
+            {/* <img /> */}
+          </div>
+          <span>kris_anfalova</span>
+        </li>
+      </ul>
+    </div>
+  );
+};
