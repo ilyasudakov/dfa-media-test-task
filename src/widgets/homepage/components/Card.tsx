@@ -22,7 +22,7 @@ export default function Card({
         <div>Уровень выплат</div>
         <div>Активных партнёров</div>
       </div>
-      <ul className="text-[0.4rem] max-h-[180px] overflow-auto scrollbar grid gap-2">
+      <ul className="text-[0.4rem] max-h-[180px] overflow-auto grid gap-2 scrollbar">
         {users.map((_, idx) => (
           <li key={idx} className="flex items-center gap-1">
             <div

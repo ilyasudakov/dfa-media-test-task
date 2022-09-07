@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/Layout";
-import Homepage from "../widgets/homepage";
+import Card from "../widgets/homepage/components/Card";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +12,19 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Homepage />
+        <div className="flex flex-wrap items-streth gap-4">
+          {Array.from({ length: 50 }).map((data, index) => (
+            <Card
+              data={{
+                level: 3,
+                partnersNumber: 133,
+              }}
+              isActive={index === 0}
+              users={Array.from({ length: 20 })}
+              key={index}
+            />
+          ))}
+        </div>
       </Layout>
     </>
   );
