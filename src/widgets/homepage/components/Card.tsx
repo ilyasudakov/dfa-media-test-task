@@ -30,12 +30,12 @@ export default function Card({
                 idx === 1 ? "opacity-100" : "opacity-50"
               }`}
             >
-              <Image
+              {/* <Image
                 width={25}
                 height={25}
                 src="/avatar.png"
                 alt="test-image"
-              />
+              /> */}
             </div>
             <span className="text-white/50">kris_anfalova</span>
           </li>
