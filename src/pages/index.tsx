@@ -12,6 +12,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
+        <h1 className="text-3xl font-bold mb-10 lg:mb-[7.5rem]">
+          Моя структура
+        </h1>
         <div className="flex flex-wrap items-streth gap-4">
           {Array.from({ length: 50 }).map((data, index) => (
             <Card
