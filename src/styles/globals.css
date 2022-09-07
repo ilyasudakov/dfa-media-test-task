@@ -1,9 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
 :root {
+  font-size: 20px;
   font-family: "Roboto", sans-serif;
+  @apply bg-bg-dark text-white;
+}
+
+body {
+  @apply min-h-screen;
+}
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  height: 100%;
 }
