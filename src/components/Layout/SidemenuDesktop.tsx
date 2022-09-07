@@ -9,15 +9,25 @@ import StoreIcon from "../../assets/store.svg";
 import MaraphonIcon from "../../assets/maraphon.svg";
 import LandingsIcon from "../../assets/landings.svg";
 
-const NAV = [
-  { text: "Дашборд", icon: <HomeIcon /> },
-  { text: "Биржа активности", icon: <ActivityIcon /> },
-  { text: "Биржа блогеров", icon: <BloggersIcon /> },
-  { text: "Взаимопиар", icon: <HeartIcon /> },
-  { text: "Моя структура", icon: <StructureIcon /> },
-  { text: "Магазин", icon: <StoreIcon /> },
-  { text: "Марафон", icon: <MaraphonIcon /> },
-  { text: "Лендинги", icon: <LandingsIcon /> },
+type NavType = {
+  text: string;
+  icon: (props: { className: string }) => React.ReactNode;
+  isActive?: boolean;
+};
+
+const NAV: NavType[] = [
+  { text: "Дашборд", icon: (props) => <HomeIcon {...props} /> },
+  { text: "Биржа активности", icon: (props) => <ActivityIcon {...props} /> },
+  { text: "Биржа блогеров", icon: (props) => <BloggersIcon {...props} /> },
+  { text: "Взаимопиар", icon: (props) => <HeartIcon {...props} /> },
+  {
+    text: "Моя структура",
+    icon: (props) => <StructureIcon {...props} />,
+    isActive: true,
+  },
+  { text: "Магазин", icon: (props) => <StoreIcon {...props} /> },
+  { text: "Марафон", icon: (props) => <MaraphonIcon {...props} /> },
+  { text: "Лендинги", icon: (props) => <LandingsIcon {...props} /> },
 ];
 
 export default function SidemenuDesktop() {
@@ -27,14 +37,21 @@ export default function SidemenuDesktop() {
   text-[0.6rem] text-secondary-light-grey"
     >
       <ul className="flex flex-col gap-4">
-        {NAV.map(({ text, icon }) => (
+        {NAV.map(({ text, icon, isActive }) => (
           <li key={text}>
-            <Link href={`/${text}`}>
-              <div className="flex gap-4 pl-6 items-center">
+            <Link href={`/`}>
+              <div
+                className={
+                  "relative flex gap-4 pl-6 items-center cursor-pointer " +
+                  (isActive
+                    ? "before:w-1 before:h-full before:bg-secondary before:absolute before:left-2"
+                    : " ")
+                }
+              >
                 <div className="flex items-center justify-center w-[1.5rem]">
-                  {icon}
+                  {icon({ className: isActive ? "fill-secondary" : "" })}
                 </div>
-                <span className="">{text}</span>
+                <span className={isActive ? "text-white" : ""}>{text}</span>
               </div>
             </Link>
           </li>
